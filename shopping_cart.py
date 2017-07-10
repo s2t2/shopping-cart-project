@@ -25,28 +25,28 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ]
 
-#product_ids = []
 #
-#while True:
-#    product_id = input("Please input a product identifier, or 'DONE' if there are no more items: ")
-#    if product_id == "DONE":
-#        break
-#    else:
-#        #print("RECEIVED PRODUCT ID:", product_id)
-#        product_ids.append(int(product_id))
+# CAPTURE USER INPUTS
+#
 
-product_ids = [1, 8, 6, 16, 6] # temporary list of ids for testing purposes
-# print("SHOPPING CART ITEM IDENTIFIERS INCLUDE:", product_ids) # temporary
+product_ids = []
+
+while True:
+    product_id = input("Please input a product identifier, or 'DONE' if there are no more items: ")
+    if product_id == "DONE":
+        break
+    else:
+        product_ids.append(int(product_id))
 
 def lookup_product_by_id(product_id):
     matching_products = [product for product in products if product["id"] == product_id]
     return matching_products[0] # because the line above gives us a list and we want to return a single item.
 
-running_total = 0
-
 #
 # PRINT RECEIPT
 #
+
+running_total = 0
 
 print("-------------------------------")
 print("MY GROCERY STORE")
