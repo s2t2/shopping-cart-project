@@ -1,4 +1,5 @@
 from IPython import embed
+import datetime
 
 # Products based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 products = [
@@ -35,7 +36,7 @@ products = [
 #        product_ids.append(int(product_id))
 
 product_ids = [1, 8, 6, 16, 6] # temporary list of ids for testing purposes
-print("SHOPPING CART ITEM IDENTIFIERS INCLUDE:", product_ids) # temporary
+# print("SHOPPING CART ITEM IDENTIFIERS INCLUDE:", product_ids) # temporary
 
 def lookup_product_by_id(product_id):
     matching_products = [product for product in products if product["id"] == product_id]
@@ -43,9 +44,31 @@ def lookup_product_by_id(product_id):
 
 running_total = 0
 
+#
+# PRINT RECEIPT
+#
+
+print("-------------------------------")
+print("MY GROCERY STORE")
+print("-------------------------------")
+print("Web: www.mystore.com")
+print("Phone: 1.123.456.7890")
+print("Checkout Time: ", datetime.datetime.now().strftime("%Y-%m-%d %H:%m:%S"))
+
+print("-------------------------------")
+print("Shopping Cart Items:")
 for product_id in product_ids:
     product = lookup_product_by_id(product_id)
     running_total += product["price"]
-    print(" + ", product["name"], product["price"])
+    price_usd = ' (${0:.2f})'.format(product["price"])
+    print(" + " + product["name"] + price_usd)
 
-print("THE TOTAL PRICE IS", running_total)
+print("-------------------------------")
+print("Subtotal:", '${0:.2f}'.format(running_total))
+tax = running_total * 0.08875
+print("Plus NYC Sales Tax (8.875%):", '${0:.2f}'.format(tax))
+total = running_total + tax
+print("Total:", '${0:.2f}'.format(total))
+
+print("-------------------------------")
+print("Thanks for your business! Please come again.")
