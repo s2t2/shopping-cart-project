@@ -24,19 +24,15 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ]
 
-# Prompt the checkout clerk to input the identifier of each shopping cart item,
-# ... one at a time.
-# At any time the clerk should be able to indicate there are no more shopping cart items
-# ... by inputting the word "DONE".
+#product_ids = []
+#
+#while True:
+#    product_id = input("Please input a product identifier, or 'DONE' if there are no more items: ")
+#    if product_id == "DONE":
+#        break
+#    else:
+#        #print("RECEIVED PRODUCT ID:", product_id)
+#        product_ids.append(int(product_id))
 
-product_ids = []
-
-while True:
-    product_id = input("Please input a product identifier, or 'DONE' if there are no more items: ")
-    if product_id == "DONE":
-        break
-    else:
-        print("RECEIVED PRODUCT ID:", product_id)
-        product_ids.append(int(product_id))
-
+product_ids = [1, 8, 6, 16, 6] # temporary list of ids for testing purposes
 print("SHOPPING CART ITEM IDENTIFIERS INCLUDE:", product_ids)
