@@ -35,4 +35,12 @@ products = [
 #        product_ids.append(int(product_id))
 
 product_ids = [1, 8, 6, 16, 6] # temporary list of ids for testing purposes
-print("SHOPPING CART ITEM IDENTIFIERS INCLUDE:", product_ids)
+print("SHOPPING CART ITEM IDENTIFIERS INCLUDE:", product_ids) # temporary
+
+def lookup_product_by_id(product_id):
+    matching_products = [product for product in products if product["id"] == product_id]
+    return matching_products[0] # because the line above gives us a list and we want to return a single item.
+
+product = lookup_product_by_id(8)
+
+print(product["name"], product["price"])
