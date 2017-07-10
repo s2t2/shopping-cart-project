@@ -24,4 +24,19 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ]
 
-embed()
+# Prompt the checkout clerk to input the identifier of each shopping cart item,
+# ... one at a time.
+# At any time the clerk should be able to indicate there are no more shopping cart items
+# ... by inputting the word "DONE".
+
+product_ids = []
+
+while True:
+    product_id = input("Please input a product identifier: ")
+    if product_id == "DONE":
+        break
+    else:
+        print("RECEIVED PRODUCT ID:", product_id)
+        product_ids.append(product_id)
+
+print("SHOPPING CART ITEM IDENTIFIERS INCLUDE:", product_ids)
