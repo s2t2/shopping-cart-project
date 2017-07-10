@@ -41,6 +41,11 @@ def lookup_product_by_id(product_id):
     matching_products = [product for product in products if product["id"] == product_id]
     return matching_products[0] # because the line above gives us a list and we want to return a single item.
 
+running_total = 0
+
 for product_id in product_ids:
     product = lookup_product_by_id(product_id)
-    print(product["name"], product["price"])
+    running_total += product["price"]
+    print(" + ", product["name"], product["price"])
+
+print("THE TOTAL PRICE IS", running_total)
