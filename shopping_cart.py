@@ -57,7 +57,7 @@ receipt_content += "MY GROCERY STORE" + "\n"
 receipt_content += "-------------------------------" + "\n"
 receipt_content += "Web: www.mystore.com" + "\n"
 receipt_content += "Phone: 1.123.456.7890" + "\n"
-receipt_content += "Checkout Time: " + checkout_at.strftime("%Y-%m-%d %H:%m:%S") + "\n"
+receipt_content += "Checkout Time: " + checkout_at.strftime("%Y-%m-%d %H:%M:%S") + "\n"
 receipt_content += "-------------------------------" + "\n"
 receipt_content += "Shopping Cart Items: " + "\n"
 
@@ -89,7 +89,7 @@ print(receipt_content)
 # WRITE RECEIPT TO FILE
 #
 
-receipt_file_name = checkout_at.strftime("%Y-%m-%d-%H-%m-%S-%f") + ".txt"
+receipt_file_name = checkout_at.strftime("%Y-%m-%d-%H-%M-%S-%f") + ".txt"
 receipt_file_path = "receipts/" + receipt_file_name
 
 with open(receipt_file_path, 'w') as file:
