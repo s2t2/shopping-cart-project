@@ -1,6 +1,6 @@
 # Shopping Cart Project
 
-My submission for the ["Shopping Cart" project](_____).
+My submission for the ["Shopping Cart" project](https://github.com/prof-rossetti/nyu-info-2335-70-201706/blob/master/projects/shopping-cart/project.md).
 
 ## Installation
 
