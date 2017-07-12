@@ -29,16 +29,14 @@ products = [
 # CAPTURE USER INPUTS
 #
 
-#product_ids = []
-#
-#while True:
-#    product_id = input("Please input a product identifier, or 'DONE' if there are no more items: ")
-#    if product_id == "DONE":
-#        break
-#    else:
-#        product_ids.append(int(product_id))
+product_ids = []
 
-product_ids = [1,8,6,6,16]
+while True:
+    product_id = input("Please input a product identifier, or 'DONE' if there are no more items: ")
+    if product_id == "DONE":
+        break
+    else:
+        product_ids.append(int(product_id))
 
 #
 # COMPILE RECEIPT CONTENT
