@@ -29,23 +29,26 @@ products = [
 # CAPTURE USER INPUTS
 #
 
-product_ids = []
+#product_ids = []
+#
+#while True:
+#    product_id = input("Please input a product identifier, or 'DONE' if there are no more items: ")
+#    if product_id == "DONE":
+#        break
+#    else:
+#        product_ids.append(int(product_id))
 
-while True:
-    product_id = input("Please input a product identifier, or 'DONE' if there are no more items: ")
-    if product_id == "DONE":
-        break
-    else:
-        product_ids.append(int(product_id))
-
-def lookup_product_by_id(product_id):
-    matching_products = [product for product in products if product["id"] == product_id]
-    return matching_products[0] # because the line above gives us a list and we want to return a single item.
+product_ids = [1,8,6,6,16]
 
 #
 # PRINT RECEIPT
 #
 
+def lookup_product_by_id(product_id):
+    matching_products = [product for product in products if product["id"] == product_id]
+    return matching_products[0] # because the line above gives us a list and we want to return a single item.
+
+checkout_at = datetime.datetime.now()
 running_total = 0
 
 print("-------------------------------")
@@ -53,7 +56,7 @@ print("MY GROCERY STORE")
 print("-------------------------------")
 print("Web: www.mystore.com")
 print("Phone: 1.123.456.7890")
-print("Checkout Time: ", datetime.datetime.now().strftime("%Y-%m-%d %H:%m:%S"))
+print("Checkout Time: ", checkout_at.strftime("%Y-%m-%d %H:%m:%S"))
 
 print("-------------------------------")
 print("Shopping Cart Items:")
@@ -72,3 +75,19 @@ print("Total:", '${0:.2f}'.format(total))
 
 print("-------------------------------")
 print("Thanks for your business! Please come again.")
+
+
+
+
+
+
+
+#
+# WRITE RECEIPT TO FILE
+#
+
+receipt_file_name = checkout_at.strftime("%Y-%m-%d-%H-%m-%S-%f") + ".txt"
+receipt_file_path = "receipts/" + receipt_file_name
+
+with open(receipt_file_path, 'w') as file:
+    file.write("Thanks for your business! Please come again.")
