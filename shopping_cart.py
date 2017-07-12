@@ -41,46 +41,49 @@ products = [
 product_ids = [1,8,6,6,16]
 
 #
-# PRINT RECEIPT
+# COMPILE RECEIPT CONTENT
 #
 
 def lookup_product_by_id(product_id):
     matching_products = [product for product in products if product["id"] == product_id]
     return matching_products[0] # because the line above gives us a list and we want to return a single item.
 
-checkout_at = datetime.datetime.now()
 running_total = 0
 
-print("-------------------------------")
-print("MY GROCERY STORE")
-print("-------------------------------")
-print("Web: www.mystore.com")
-print("Phone: 1.123.456.7890")
-print("Checkout Time: ", checkout_at.strftime("%Y-%m-%d %H:%m:%S"))
+checkout_at = datetime.datetime.now()
 
-print("-------------------------------")
-print("Shopping Cart Items:")
+receipt_content = "-------------------------------" + "\n"
+receipt_content += "MY GROCERY STORE" + "\n"
+receipt_content += "-------------------------------" + "\n"
+receipt_content += "Web: www.mystore.com" + "\n"
+receipt_content += "Phone: 1.123.456.7890" + "\n"
+receipt_content += "Checkout Time: " + checkout_at.strftime("%Y-%m-%d %H:%m:%S") + "\n"
+receipt_content += "-------------------------------" + "\n"
+receipt_content += "Shopping Cart Items: " + "\n"
+
 for product_id in product_ids:
     product = lookup_product_by_id(product_id)
     running_total += product["price"]
     price_usd = ' (${0:.2f})'.format(product["price"])
-    print(" + " + product["name"] + price_usd)
+    receipt_content += " + " + product["name"] + price_usd + "\n"
 
-print("-------------------------------")
-print("Subtotal:", '${0:.2f}'.format(running_total))
+receipt_content += "-------------------------------" + "\n"
+receipt_content += "Subtotal: " + '${0:.2f}'.format(running_total) + "\n"
+
 tax = running_total * 0.08875
-print("Plus NYC Sales Tax (8.875%):", '${0:.2f}'.format(tax))
+receipt_content += "Plus NYC Sales Tax (8.875%): " + '${0:.2f}'.format(tax) + "\n"
+
 total = running_total + tax
-print("Total:", '${0:.2f}'.format(total))
+receipt_content += "Total: " + '${0:.2f}'.format(total) + "\n"
 
-print("-------------------------------")
-print("Thanks for your business! Please come again.")
+receipt_content += "-------------------------------" + "\n"
+receipt_content += "Thanks for your business! Please come again."
 
+#
+# WRITE RECEIPT TO TERMINAL OUTPUT
+#
 
-
-
-
-
+print(receipt_content)
 
 #
 # WRITE RECEIPT TO FILE
@@ -90,4 +93,4 @@ receipt_file_name = checkout_at.strftime("%Y-%m-%d-%H-%m-%S-%f") + ".txt"
 receipt_file_path = "receipts/" + receipt_file_name
 
 with open(receipt_file_path, 'w') as file:
-    file.write("Thanks for your business! Please come again.")
+    file.write(receipt_content)
