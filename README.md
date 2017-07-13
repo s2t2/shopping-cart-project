@@ -13,12 +13,6 @@ git clone git@github.com:s2t2/shopping-cart-project.git
 cd shopping-cart-project/
 ```
 
-Install package dependencies, if necessary:
-
-```shell
-pip3 install -r requirements.txt
-```
-
 ## Usage
 
 Run this script, then follow the on-screen instructions:
