@@ -4,7 +4,7 @@ My submission for the ["Shopping Cart" project](https://github.com/prof-rossetti
 
 ## Installation
 
-This project requires Python 3.x and corresponding version of Pip.
+This project requires Python 3.x.
 
 Download the source code:
 
