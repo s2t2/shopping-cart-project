@@ -53,7 +53,7 @@ print("MY GROCERY STORE")
 print("-------------------------------")
 print("Web: www.mystore.com")
 print("Phone: 1.123.456.7890")
-print("Checkout Time: ", datetime.datetime.now().strftime("%Y-%m-%d %H:%m:%S"))
+print("Checkout Time: ", datetime.datetime.now().strftime("%Y-%m-%d %H:%m:%S")) # FYI you might want to double check if this is the proper date format :smiley_cat:
 
 print("-------------------------------")
 print("Shopping Cart Items:")
